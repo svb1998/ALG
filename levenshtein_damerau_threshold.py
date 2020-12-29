@@ -87,7 +87,7 @@ def dp_intermediate_damerau_backwards(x, y, threshold = 4):
             return threshold + 1
 
     return D[len(x), len(y)]
-
+"""
 test = [("algoritmo","algortimo"),
         ("algoritmo","algortximo"),
         ("algoritmo","lagortimo"),
@@ -102,7 +102,8 @@ for x,y in test:
                       (dp_intermediate_damerau_backwards,"intermediate")):
         print(f" {name} {dist(x,y):2}",end="")
     print()
-                 
+"""
+
 """
 Salida del programa:
 
