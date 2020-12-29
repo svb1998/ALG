@@ -3,6 +3,7 @@ import re
 
 from trie import Trie
 from levenshtein_damerau_threshold import dp_levenshtein_backwards, dp_restricted_damerau_backwards, dp_intermediate_damerau_backwards
+import numpy as np
 
 class SpellSuggester:
 
@@ -98,8 +99,62 @@ class TrieSpellSuggester(SpellSuggester):
     def __init__(self, vocab_file_path):
         super().__init__(vocab_file_path)
         self.trie = Trie(self.vocabulary)
+
+
+    def dp_levenshtein_backwards_trie(self, x, threshold = 4):
+
+        D = np.zeros((self.trie.get_num_states() + 1, len(x) + 1))
+
+        for i in range(1, self.trie.get_num_states() + 1):
+            D[i, 0] = D[self.trie.get_parent(i), 0] + 1
+
+        
+        print(D[:, 0])
+        for j in range(1, len(x) + 1):
+            D[0, j] = D[0, j - 1] + 1
+
+
+            for i in range(1, self.trie.get_num_states() + 1):
+                D[i, j] = min(
+                    D[self.trie.get_parent(i), j] + 1,
+                    D[i, j - 1] + 1,
+                    D[self.trie.get_parent(i), j - 1] + (self.trie.get_label(i) != x[j-1]) 
+                )
+
+            print(D[:, j])
+
+            
+            if(min(D[:, j]) > threshold):
+                return threshold + 1
+
+        
+        return D[:, len(x)]
+
+    def suggest(self, term, distance="levenshtein", threshold=None):
+
+        # assert distance in ["levenshtein", "restricted", "intermediate"]
+
+
+        assert distance in ["levenshtein"]
+
+        if (threshold != None):
+            distances = self.dp_levenshtein_backwards_trie(term, threshold)
+        else: 
+            distances = self.dp_levenshtein_backwards_trie(term)
+
+        results = {} # diccionario termino:distancia
+
+
+        if type(distances) is np.ndarray:
+            for i in range(0, self.trie.get_num_states() + 1):
+            
+                if(self.trie.is_final(i) and distances[i] <= threshold ):
+                    word = self.trie.get_output(i)
+                    results[word] = distances[i]
+
+        return results
     
 if __name__ == "__main__":
     spellsuggester = TrieSpellSuggester("./corpora/quijote.txt")
-    print(spellsuggester.suggest("alÃ¡bese"))
+    print(spellsuggester.suggest("alábese"))
     # cuidado, la salida es enorme print(suggester.trie)

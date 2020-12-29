@@ -8,7 +8,7 @@ if __name__ == "__main__":
         with open(destiny, "w", encoding='utf-8') as fw:
             for palabra in ("casa", "senor", "jabón", "constitución", "ancho",
                             "savaedra", "vicios", "quixot", "s3afg4ew"):
-                for threshold in range(1, 6):
+                for threshold in range(0, 6):
                     resul = spellsuggester.suggest(palabra,distance=distance,threshold=threshold)
                     numresul = len(resul)
                     resul = " ".join(sorted(f'{v}:{k}' for k,v in resul.items()))
