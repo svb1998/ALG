@@ -1,7 +1,9 @@
 import collections
 import re
 
-n = 100 # Palabras a incluir en el diccionario
+# Intervalo de palabras que se incluirán en el diccionario
+b = 0   # Inicio del intervalo
+n = 100 # Final del intervalo
 sorted_vocab = []
 
 vocab_file_path = "./corpora/quijote.txt"
@@ -14,5 +16,5 @@ with open(vocab_file_path, "r", encoding='utf-8') as fr:
     sorted_reversed = sorted(reversed_c, reverse=True)
     sorted_vocab = [word for (freq, word) in sorted_reversed]
 
-with open("./corpora/quijote_"+str(n)+".txt", "w", encoding='utf-8') as new_dict:
-    new_dict.write(" ".join(sorted_vocab[0:n]))
+with open("./corpora/quijote_"+str(b)+"_"+str(n)+".txt", "w", encoding='utf-8') as new_dict:
+    new_dict.write(" ".join(sorted_vocab[b:n]))
