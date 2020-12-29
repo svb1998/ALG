@@ -9,13 +9,14 @@ import re
 #    2. Variando el threshold
 
 dicts = ["quijote_0_100.txt", "quijote_0_500.txt", "quijote_0_1000.txt"]
+thresholds = [1, 2, 3, 5, 10, 20]
 
 for dict in dicts:
 
     spellsuggester = SpellSuggester("./corpora/"+dict)
     trie_spellsuggester = TrieSpellSuggester("./corpora/"+dict)
 
-    #Levenshtein 
+    #Levenshtein
     t_ini = time.process_time()
     res = spellsuggester.suggest("casa", "levenshtein")
     t_end = time.process_time()
@@ -32,11 +33,12 @@ for dict in dicts:
     res = spellsuggester.suggest("casa", "intermediate")
     t_end = time.process_time()
     print("[Distancia Levenshtein Intermedia] -> Tiempo usando "+dict+":\t"+str(t_end-t_ini))
-    
-    #Con Trie
-    t_ini = time.process_time()
-    res = trie_spellsuggester.suggest("progremador", "levenshtein", 1)
-    t_end = time.process_time()
-    print("[Distancia Levenshtein Con Trie] -> Tiempo usando "+dict+":\t"+str(t_end-t_ini))
+
+    for threshold in thresholds:
+        #Con Trie
+        t_ini = time.process_time()
+        res = trie_spellsuggester.suggest("casa", "levenshtein", threshold)
+        t_end = time.process_time()
+        print("[Distancia Levenshtein Con Trie] -> Tiempo usando "+dict+" y threshold: " + str(threshold)+":\t"+str(t_end-t_ini))
 
     print("----------------------------------------------------------")
