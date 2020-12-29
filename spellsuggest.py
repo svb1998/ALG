@@ -63,7 +63,7 @@ class SpellSuggester:
                 if(threshold != None):
                     dist = dp_levenshtein_backwards(word, term, threshold)
 
-                    if(dist < threshold):
+                    if(dist <= threshold):
                         results[word] = dist
                 else:
                     dist = dp_levenshtein_backwards(word, term)
@@ -73,7 +73,7 @@ class SpellSuggester:
                 if(threshold != None):
                     dist = dp_restricted_damerau_backwards(word, term, threshold)
 
-                    if(dist < threshold):
+                    if(dist <= threshold):
                         results[word] = dist
                 else:
                     dist = dp_restricted_damerau_backwards(word, term)
@@ -83,7 +83,7 @@ class SpellSuggester:
                 if(threshold != None):
                     dist = dp_intermediate_damerau_backwards(word, term, threshold)
 
-                    if(dist < threshold):
+                    if(dist <= threshold):
                         results[word] = dist
                 else:
                     dist = dp_intermediate_damerau_backwards(word, term)
