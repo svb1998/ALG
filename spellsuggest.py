@@ -108,8 +108,6 @@ class TrieSpellSuggester(SpellSuggester):
         for i in range(1, self.trie.get_num_states() + 1):
             D[i, 0] = D[self.trie.get_parent(i), 0] + 1
 
-        
-        print(D[:, 0])
         for j in range(1, len(x) + 1):
             D[0, j] = D[0, j - 1] + 1
 
@@ -120,8 +118,6 @@ class TrieSpellSuggester(SpellSuggester):
                     D[i, j - 1] + 1,
                     D[self.trie.get_parent(i), j - 1] + (self.trie.get_label(i) != x[j-1]) 
                 )
-
-            print(D[:, j])
 
             
             if(min(D[:, j]) > threshold):
