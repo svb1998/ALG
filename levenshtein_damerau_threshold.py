@@ -90,7 +90,7 @@ def dp_intermediate_damerau_backwards(x, y, threshold = 4):
 
     return D[len(x), len(y)]
 
-# test = [("algoritmo","algortimo"),
+# test = [("cazador","caazdor"),
 #         ("algoritmo","algortximo"),
 #         ("algoritmo","lagortimo"),
 #         ("algoritmo","agaloritom"),

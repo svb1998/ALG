@@ -126,17 +126,97 @@ class TrieSpellSuggester(SpellSuggester):
         
         return D[:, len(x)]
 
+    def dp_restricted_damerau_backwards_trie(self, x, threshold = 4):
+
+        D = np.zeros((self.trie.get_num_states() + 1, len(x) + 1))
+
+        for i in range(1, self.trie.get_num_states() + 1):
+            D[i, 0] = D[self.trie.get_parent(i), 0] + 1
+
+
+        for j in range(1, len(x) + 1):
+            D[0, j] = D[0, j - 1] + 1
+
+
+            for i in range(1, self.trie.get_num_states() + 1):
+                D[i, j] = min(
+                    D[self.trie.get_parent(i), j] + 1,
+                    D[i, j - 1] + 1,
+                    D[self.trie.get_parent(i), j - 1] + (self.trie.get_label(i) != x[j-1]) 
+                )
+
+
+                if i > 1 and j > 1 and x[j - 2] == self.trie.get_label(i) and x[j - 1] == self.trie.get_label(self.trie.get_parent(i)):
+                    D[i, j] = min(
+                        D[i, j],
+                        D[self.trie.get_parent(self.trie.get_parent(i)), j - 2] + 1
+                    )
+
+            
+            if(min(D[:, j]) > threshold):
+                return threshold + 1
+
+        return D[:, len(x)]
+
+    def dp_intermediate_damerau_backwards_trie(self, x, threshold = 4):
+
+        D = np.zeros((self.trie.get_num_states() + 1, len(x) + 1))
+
+        for i in range(1, self.trie.get_num_states() + 1):
+            D[i, 0] = D[self.trie.get_parent(i), 0] + 1
+
+        for j in range(1, len(x) + 1):
+            D[0, j] = D[0, j - 1] + 1
+
+            for i in range(1, self.trie.get_num_states() + 1):
+                D[i, j] = min(
+                    D[self.trie.get_parent(i), j] + 1,
+                    D[i, j - 1] + 1,
+                    D[self.trie.get_parent(i), j - 1] + (self.trie.get_label(i) != x[j-1]) 
+                )
+
+                if i > 1 and j > 1 and self.trie.get_label(self.trie.get_parent(i)) == x[j - 1] and self.trie.get_label(i) == x[j-2]:
+                    D[i, j] = min(
+                        D[i, j],
+                        D[self.trie.get_parent(self.trie.get_parent(i)), j - 2] + 1
+                    )
+                if(i > 2 and j > 1 and self.trie.get_label(self.trie.get_parent(self.trie.get_parent(i))) == x[j - 1] and self.trie.get_label(i) == x[j - 2]):
+                    D[i, j] = min(
+                        D[i, j],
+                        D[self.trie.get_parent(self.trie.get_parent(i)), j - 2] + 1
+                    )
+                if(i > 1 and j > 2 and self.trie.get_label(i) == x[j - 3] and self.trie.get_label(self.trie.get_parent(i)) == x[j - 1]):
+                    D[i, j] = min(
+                        D[i, j],
+                        D[self.trie.get_parent(self.trie.get_parent(i)), j - 2] + 1
+                    )
+
+            if(min(D[:, j]) > threshold):
+                return threshold + 1
+
+        return D[:, len(x)]
+
     def suggest(self, term, distance="levenshtein", threshold=None):
 
-        # assert distance in ["levenshtein", "restricted", "intermediate"]
+        assert distance in ["levenshtein", "restricted", "intermediate"]
 
+        if distance == "levenshtein":
+            if (threshold != None):
+                distances = self.dp_levenshtein_backwards_trie(term, threshold)
+            else: 
+                distances = self.dp_levenshtein_backwards_trie(term)
 
-        assert distance in ["levenshtein"]
+        elif distance == "restricted":
+            if (threshold != None):
+                distances = self.dp_restricted_damerau_backwards_trie(term, threshold)
+            else: 
+                distances = self.dp_restricted_damerau_backwards_trie(term)
 
-        if (threshold != None):
-            distances = self.dp_levenshtein_backwards_trie(term, threshold)
-        else: 
-            distances = self.dp_levenshtein_backwards_trie(term)
+        elif distance == "intermediate":
+            if (threshold != None):
+                distances = self.dp_intermediate_damerau_backwards_trie(term, threshold)
+            else: 
+                distances = self.dp_intermediate_damerau_backwards_trie(term)
 
         results = {} # diccionario termino:distancia
 
