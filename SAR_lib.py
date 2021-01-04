@@ -4,8 +4,16 @@ import os
 import pickle
 import re
 
+<<<<<<< HEAD
 from nltk.stem.snowball import SnowballStemmer
 
+=======
+import spellsuggest
+
+from nltk.stem.snowball import SnowballStemmer
+
+
+>>>>>>> cc64a67d6584da036dc041b3ec2173eae17ff06b
 class SAR_Project:
     """
     Prototipo de la clase para realizar la indexacion y la recuperacion de noticias
@@ -427,7 +435,10 @@ class SAR_Project:
 
         query_list = query.split()
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> cc64a67d6584da036dc041b3ec2173eae17ff06b
         x = 0
         while x < len(query_list) - 1:
 
