@@ -3,7 +3,7 @@ import re
 
 # Intervalo de palabras que se incluirán en el diccionario
 b = 0   # Inicio del intervalo
-n = 1000 # Final del intervalo
+n = 40000 # Final del intervalo
 sorted_vocab = []
 
 vocab_file_path = "./corpora/quijote.txt"

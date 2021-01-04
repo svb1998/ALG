@@ -1,111 +1,29 @@
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_100.txt y threshold: 1:	0.0
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_100.txt y threshold: 1:	0.015625
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_100.txt y threshold: 1:	0.0
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_100.txt y threshold: 1:	0.0
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_100.txt y threshold: 1:	0.015625
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_100.txt y threshold: 1:	0.0
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_100.txt y threshold: 2:	0.0
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_100.txt y threshold: 2:	0.015625
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_100.txt y threshold: 2:	0.0
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_100.txt y threshold: 2:	0.015625
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_100.txt y threshold: 2:	0.0
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_100.txt y threshold: 2:	0.0
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_100.txt y threshold: 3:	0.015625
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_100.txt y threshold: 3:	0.0
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_100.txt y threshold: 3:	0.015625
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_100.txt y threshold: 3:	0.015625
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_100.txt y threshold: 3:	0.015625
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_100.txt y threshold: 3:	0.015625
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_100.txt y threshold: 5:	0.015625
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_100.txt y threshold: 5:	0.015625
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_100.txt y threshold: 5:	0.015625
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_100.txt y threshold: 5:	0.0
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_100.txt y threshold: 5:	0.0
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_100.txt y threshold: 5:	0.015625
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_100.txt y threshold: 10:	0.0
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_100.txt y threshold: 10:	0.015625
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_100.txt y threshold: 10:	0.0
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_100.txt y threshold: 10:	0.0
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_100.txt y threshold: 10:	0.015625
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_100.txt y threshold: 10:	0.0
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_100.txt y threshold: 20:	0.0
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_100.txt y threshold: 20:	0.015625
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_100.txt y threshold: 20:	0.0
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_100.txt y threshold: 20:	0.0
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_100.txt y threshold: 20:	0.015625
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_100.txt y threshold: 20:	0.0
+Levenshtein 		 Levenshtein Restringida 		 Levenshtein Intermedia 		 Levenshtein Con Trie 		 Levenshtein Restringida Con Trie 		 Levenshtein Intermedia Con Trie
+0.04330287399999999 		 0.036606681999999946 		 0.034207239 		         0.05924078200000005 		 0.06552865500000005 		 0.005076477999999995
+0.004835337000000051 		 0.005036925999999942 		 0.005071368999999937 		 0.0038526340000000214 		 0.004399668999999995 		 0.005079024000000043
+0.00567645299999997 		 0.005823108000000077 		 0.0060162710000000175 		 0.003785989000000045 		 0.0041176399999999225 		 0.005134006000000024
+0.0060032970000000185 		 0.006163707000000018 		 0.006475621999999959 		 0.0038316850000000846 		 0.004197110000000004 		 0.005132303000000005
+0.006009637999999984 		 0.0061549709999999536 		 0.006398397 		         0.003870257000000099 		 0.004109796000000054 		 0.005152531000000016
+0.006035816999999888 		 0.00619177999999998 		 0.006484088999999971 		 0.00385489799999994 		 0.004144270999999922 		 0.00512298500000008
 ----------------------------------------------------------
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_500.txt y threshold: 1:	0.015625
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_500.txt y threshold: 1:	0.015625
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_500.txt y threshold: 1:	0.015625
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_500.txt y threshold: 1:	0.015625
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_500.txt y threshold: 1:	0.03125
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_500.txt y threshold: 1:	0.03125
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_500.txt y threshold: 2:	0.03125
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_500.txt y threshold: 2:	0.015625
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_500.txt y threshold: 2:	0.03125
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_500.txt y threshold: 2:	0.03125
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_500.txt y threshold: 2:	0.015625
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_500.txt y threshold: 2:	0.03125
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_500.txt y threshold: 3:	0.046875
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_500.txt y threshold: 3:	0.03125
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_500.txt y threshold: 3:	0.03125
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_500.txt y threshold: 3:	0.03125
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_500.txt y threshold: 3:	0.015625
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_500.txt y threshold: 3:	0.046875
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_500.txt y threshold: 5:	0.03125
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_500.txt y threshold: 5:	0.046875
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_500.txt y threshold: 5:	0.046875
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_500.txt y threshold: 5:	0.015625
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_500.txt y threshold: 5:	0.03125
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_500.txt y threshold: 5:	0.03125
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_500.txt y threshold: 10:	0.046875
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_500.txt y threshold: 10:	0.03125
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_500.txt y threshold: 10:	0.046875
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_500.txt y threshold: 10:	0.03125
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_500.txt y threshold: 10:	0.015625
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_500.txt y threshold: 10:	0.046875
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_500.txt y threshold: 20:	0.046875
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_500.txt y threshold: 20:	0.03125
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_500.txt y threshold: 20:	0.046875
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_500.txt y threshold: 20:	0.03125
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_500.txt y threshold: 20:	0.015625
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_500.txt y threshold: 20:	0.046875
+0.011890954999999925 		 0.012130254000000118 		 0.01237630600000017 		 0.02189635600000006 		 0.02367389799999997 		 0.02955666899999998
+0.024591268 		         0.025295929999999966 		 0.02602199999999999 		 0.02191831699999991 		 0.023959755000000138 		 0.029538856000000058
+0.03382524200000003 		 0.034545872999999894 		 0.03597758799999995 		 0.021876838000000065 		 0.023929257000000037 		 0.02950748599999997
+0.038753904000000006 		 0.03947673800000007 		 0.040922308999999935 		 0.022015027999999992 		 0.02388390100000004 		 0.02955007799999998
+0.03974177600000006 		 0.040816581000000074 		 0.04218743300000005 		 0.02202155100000014 		 0.023890054999999855 		 0.02965067500000007
+0.040679523000000106 		 0.046745126999999886 		 0.04295625199999975 		 0.0219234260000003 		 0.024502712999999954 		 0.03821696500000016
 ----------------------------------------------------------
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_1000.txt y threshold: 1:	0.03125
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_1000.txt y threshold: 1:	0.015625
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_1000.txt y threshold: 1:	0.0625
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_1000.txt y threshold: 1:	0.0625
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_1000.txt y threshold: 1:	0.03125
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_1000.txt y threshold: 1:	0.09375
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_1000.txt y threshold: 2:	0.078125
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_1000.txt y threshold: 2:	0.0625
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_1000.txt y threshold: 2:	0.0625
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_1000.txt y threshold: 2:	0.046875
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_1000.txt y threshold: 2:	0.09375
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_1000.txt y threshold: 2:	0.046875
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_1000.txt y threshold: 3:	0.046875
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_1000.txt y threshold: 3:	0.0625
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_1000.txt y threshold: 3:	0.078125
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_1000.txt y threshold: 3:	0.046875
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_1000.txt y threshold: 3:	0.046875
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_1000.txt y threshold: 3:	0.0625
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_1000.txt y threshold: 5:	0.109375
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_1000.txt y threshold: 5:	0.109375
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_1000.txt y threshold: 5:	0.15625
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_1000.txt y threshold: 5:	0.109375
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_1000.txt y threshold: 5:	0.09375
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_1000.txt y threshold: 5:	0.09375
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_1000.txt y threshold: 10:	0.125
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_1000.txt y threshold: 10:	0.109375
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_1000.txt y threshold: 10:	0.078125
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_1000.txt y threshold: 10:	0.0625
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_1000.txt y threshold: 10:	0.0625
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_1000.txt y threshold: 10:	0.109375
-[Distancia Levenshtein]                      -> Tiempo usando quijote_0_1000.txt y threshold: 20:	0.078125
-[Distancia Levenshtein Restringida]          -> Tiempo usando quijote_0_1000.txt y threshold: 20:	0.09375
-[Distancia Levenshtein Intermedia]           -> Tiempo usando quijote_0_1000.txt y threshold: 20:	0.09375
-[Distancia Levenshtein Con Trie]             -> Tiempo usando quijote_0_1000.txt y threshold: 20:	0.046875
-[Distancia Levenshtein Restringida Con Trie] -> Tiempo usando quijote_0_1000.txt y threshold: 20:	0.078125
-[Distancia Levenshtein Intermedia Con Trie]  -> Tiempo usando quijote_0_1000.txt y threshold: 20:	0.078125
+0.024686527999999708 		 0.021727859000000294 		 0.022160461000000353 		 0.04584360700000012 		 0.04936649200000032 		 0.06145478999999998
+0.045916252000000046 		 0.04661043499999984 		 0.04846588400000007 		 0.045855559000000046 		 0.049929628000000115 		 0.06223989899999971
+0.0669358339999997 		     0.06884396199999987 		 0.07067481500000028 		 0.04561709299999972 		 0.05022038400000017 		 0.061854566000000055
+0.0828778760000004 		     0.08396493099999969 		 0.0910792530000002 		 0.04724560500000008 		 0.051365910999999986 		 0.06310728700000023
+0.08797573400000003 		 0.09033587100000018 		 0.0935364919999997 		 0.047173159999999825 		 0.05113512800000031 		 0.0634027210000001
+0.08766995200000016 		 0.089906724 		         0.09227033400000018 		 0.04554881299999991 		 0.04975385799999987 		 0.06177579999999949
+----------------------------------------------------------
+0.14290115000000014 		 0.14583521399999988 		 0.1520104800000004 		 0.8991182039999996 		 0.9422768759999993 		 1.1685449339999998
+0.41906957700000014 		 0.43017640199999896 		 0.4453997550000004 		 0.8610249359999997 		 0.935981151 		         1.1669306340000016
+0.8644970380000014 		     0.889895554999999 		     0.9306262699999994 		 0.8613436869999997 		 0.9514067159999993 		 1.1723991320000025
+1.6632125600000016 		     1.6885004919999993 		 1.754846625999999 		     0.86995164 		         0.9500435260000017 		 1.1852531140000018
+2.3146011840000007 		     2.359162992999998 		     2.461139145000004 		     0.8800290349999997 		 0.9543060230000009 		 1.1851334099999988
+2.3171090089999993 		     2.373234231000005 		     2.489157253000002 		     0.8764719469999989 		 0.9598804680000015 		 1.1915728669999979
 ----------------------------------------------------------
