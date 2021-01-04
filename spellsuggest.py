@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import re
-
+import os
 from trie import Trie
 from levenshtein_damerau_threshold import dp_levenshtein_backwards, dp_restricted_damerau_backwards, dp_intermediate_damerau_backwards
 import numpy as np
+import json
 
 class SpellSuggester:
 
@@ -35,10 +36,36 @@ class SpellSuggester:
             vocab_file (str): ruta del fichero de texto para cargar el vocabulario.
             tokenizer (re.Pattern): expresión regular para la tokenización.
         """
-        with open(vocab_file_path, "r", encoding='utf-8') as fr:
-            vocab = set(tokenizer.split(fr.read().lower()))
+
+        if os.path.isdir(vocab_file_path):
+
+            vocab = set()
+
+            for dir, subdirs, files in os.walk(vocab_file_path):
+                for filename in files:
+                    if filename.endswith('.json'):
+                        fullname = os.path.join(dir, filename)
+
+                        with open(fullname) as fh:
+                            news_list = json.load(fh)
+
+                        for new in news_list:
+
+                            words = set(tokenizer.split(new['article'].lower()))
+                            for word in words:
+                                if(word == "hola"):
+                                    print(fullname)
+                                vocab.add(word)
+                            
             vocab.discard('') # por si acaso
-            return sorted(vocab)
+            return sorted(vocab) 
+            
+        else: 
+            with open(vocab_file_path, "r", encoding='utf-8') as fr:
+                    vocab = set(tokenizer.split(fr.read().lower()))
+                    vocab.discard('') # por si acaso
+                    return sorted(vocab) 
+
 
     def suggest(self, term, distance="levenshtein", threshold=None):
 

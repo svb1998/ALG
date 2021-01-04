@@ -2,8 +2,6 @@ import argparse
 import pickle
 import time
 
-from spellsuggest import SpellSuggester 
-
 from SAR_lib import SAR_Project
 
 if __name__ == "__main__":
@@ -23,6 +21,9 @@ if __name__ == "__main__":
 
     parser.add_argument('-O', '--positional', dest='positional', action='store_true', default=False,
                         help='compute positional index.')
+
+    parser.add_argument('-U', '--suggest', dest='suggestion', action='store_true', default=False,
+                        help='makes suggestions on posible words')
 
     args = parser.parse_args()
 

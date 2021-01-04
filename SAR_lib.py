@@ -5,6 +5,7 @@ import pickle
 import re
 
 from nltk.stem.snowball import SnowballStemmer
+from spellsuggest import SpellSuggester 
 
 class SAR_Project:
     """
@@ -135,10 +136,16 @@ class SAR_Project:
         self.positional = args['positional']
         self.stemming = args['stem']
         self.permuterm = args['permuterm']
+        self.suggestion = args['suggestion'] 
 
         if self.multifield:
             for field, _ in SAR_Project.fields:
                 self.index[field] = {}
+
+        print("Root : " + root)
+
+        if self.suggestion:
+            self.spellsuggester = SpellSuggester(root)
 
         for dir, subdirs, files in os.walk(root):
             for filename in files:
@@ -340,6 +347,9 @@ class SAR_Project:
             for field, _ in self.fields:
                 print(f"         # of tokens in '{field}' : {len(self.index[field])} ")
 
+        if self.suggestion:
+                print(f"         # of words in spellsuggest: {len(self.spellsuggester.vocabulary)} ")
+
         else:
             print(f"         # of tokens in 'article' : {len(self.index)}")
 
@@ -407,7 +417,14 @@ class SAR_Project:
 
         # One word query
         if len(query_list) == 1 and query not in connectors:
-            return self.get_posting(*query_list[0])
+
+            posting_list = self.get_posting(*query_list[0])
+
+            if self.suggestion and len(posting_list) == 0:
+                posting_list = self.search_suggestions(*query_list[0])
+
+            
+            return posting_list
 
         # esta linea hace lo mismo que el bucle for de abajo
         # terms_postings = {i: self.get_posting(*t) for i, t in enumerate(query_list) if t[0] not in connectors}
@@ -418,10 +435,21 @@ class SAR_Project:
         for term in query_list:
             if len(term) == 1:
                 if term[0] not in connectors:
-                    terms_postings[term_pos] = self.get_posting(*term)
+
+                    posting_list = self.get_posting(*term)
+
+                    if len(posting_list) == 0:
+                        terms_postings[term_pos] = self.search_suggestions(*term)
+
+                    terms_postings[term_pos] = posting_list
 
             else:
-                terms_postings[term_pos] = self.get_posting(*term)
+                posting_list = self.get_posting(*term)
+
+                if len(posting_list) == 0:
+                        terms_postings[term_pos] = self.search_suggestions(*term)
+
+                terms_postings[term_pos] = posting_list
 
             term_pos = term_pos + 1
 
@@ -458,6 +486,27 @@ class SAR_Project:
             x += 1
 
         return terms_postings[len(query_list) - 1]
+
+
+    def search_suggestions(self, term):
+        suggested = self.spellsuggester.suggest(term, "restricted", 2)
+
+        print(suggested)
+
+        query = ''
+
+        words = list(suggested.keys())
+
+        for i in range(len(words)):
+            if i < len(words) - 1: 
+                query += str(words[i]) + " OR " 
+            else:
+                query += str(words[i])
+
+        posting_list = self.solve_query(query)
+
+        return posting_list
+
 
     def get_posting(self, term, field='article'):
         """
