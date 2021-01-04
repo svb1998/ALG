@@ -6,7 +6,6 @@ from spellsuggest import SpellSuggester
 
 from SAR_lib import SAR_Project
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Index a directory with news in json format.')
 

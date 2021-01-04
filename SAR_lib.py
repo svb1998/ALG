@@ -427,10 +427,6 @@ class SAR_Project:
 
         query_list = query.split()
 
-<<<<<<< HEAD
-
-=======
->>>>>>> cc64a67d6584da036dc041b3ec2173eae17ff06b
         x = 0
         while x < len(query_list) - 1:
 
