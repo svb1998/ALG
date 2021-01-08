@@ -5,7 +5,7 @@ import pickle
 import re
 
 from nltk.stem.snowball import SnowballStemmer
-from spellsuggest import SpellSuggester 
+from spellsuggest import SpellSuggester
 
 class SAR_Project:
     """
@@ -136,7 +136,7 @@ class SAR_Project:
         self.positional = args['positional']
         self.stemming = args['stem']
         self.permuterm = args['permuterm']
-        self.suggestion = args['suggestion'] 
+        self.suggestion = args['suggestion']
 
         if self.multifield:
             for field, _ in SAR_Project.fields:
@@ -423,7 +423,7 @@ class SAR_Project:
             if self.suggestion and len(posting_list) == 0:
                 posting_list = self.search_suggestions(*query_list[0])
 
-            
+
             return posting_list
 
         # esta linea hace lo mismo que el bucle for de abajo
@@ -438,7 +438,7 @@ class SAR_Project:
 
                     posting_list = self.get_posting(*term)
 
-                    if len(posting_list) == 0:
+                    if self.suggestion and len(posting_list) == 0:
                         terms_postings[term_pos] = self.search_suggestions(*term)
 
                     terms_postings[term_pos] = posting_list
@@ -446,7 +446,7 @@ class SAR_Project:
             else:
                 posting_list = self.get_posting(*term)
 
-                if len(posting_list) == 0:
+                if self.suggestion and len(posting_list) == 0:
                         terms_postings[term_pos] = self.search_suggestions(*term)
 
                 terms_postings[term_pos] = posting_list
@@ -498,8 +498,8 @@ class SAR_Project:
         words = list(suggested.keys())
 
         for i in range(len(words)):
-            if i < len(words) - 1: 
-                query += str(words[i]) + " OR " 
+            if i < len(words) - 1:
+                query += str(words[i]) + " OR "
             else:
                 query += str(words[i])
 
