@@ -53,18 +53,16 @@ class SpellSuggester:
 
                             words = set(tokenizer.split(new['article'].lower()))
                             for word in words:
-                                if(word == "hola"):
-                                    print(fullname)
                                 vocab.add(word)
-                            
+
             vocab.discard('') # por si acaso
-            return sorted(vocab) 
-            
-        else: 
+            return sorted(vocab)
+
+        else:
             with open(vocab_file_path, "r", encoding='utf-8') as fr:
                     vocab = set(tokenizer.split(fr.read().lower()))
                     vocab.discard('') # por si acaso
-                    return sorted(vocab) 
+                    return sorted(vocab)
 
 
     def suggest(self, term, distance="levenshtein", threshold=None):
@@ -84,8 +82,8 @@ class SpellSuggester:
         assert distance in ["levenshtein", "restricted", "intermediate"]
 
         results = {} # diccionario termino:distancia
-        
-        for word in self.vocabulary: 
+
+        for word in self.vocabulary:
 
             if(distance == "levenshtein"):
                 if(threshold != None):
@@ -143,14 +141,14 @@ class TrieSpellSuggester(SpellSuggester):
                 D[i, j] = min(
                     D[self.trie.get_parent(i), j] + 1,
                     D[i, j - 1] + 1,
-                    D[self.trie.get_parent(i), j - 1] + (self.trie.get_label(i) != x[j-1]) 
+                    D[self.trie.get_parent(i), j - 1] + (self.trie.get_label(i) != x[j-1])
                 )
 
-            
+
             if(min(D[:, j]) > threshold):
                 return threshold + 1
 
-        
+
         return D[:, len(x)]
 
     def dp_restricted_damerau_backwards_trie(self, x, threshold = 4):
@@ -169,7 +167,7 @@ class TrieSpellSuggester(SpellSuggester):
                 D[i, j] = min(
                     D[self.trie.get_parent(i), j] + 1,
                     D[i, j - 1] + 1,
-                    D[self.trie.get_parent(i), j - 1] + (self.trie.get_label(i) != x[j-1]) 
+                    D[self.trie.get_parent(i), j - 1] + (self.trie.get_label(i) != x[j-1])
                 )
 
 
@@ -179,7 +177,7 @@ class TrieSpellSuggester(SpellSuggester):
                         D[self.trie.get_parent(self.trie.get_parent(i)), j - 2] + 1
                     )
 
-            
+
             if(min(D[:, j]) > threshold):
                 return threshold + 1
 
@@ -199,7 +197,7 @@ class TrieSpellSuggester(SpellSuggester):
                 D[i, j] = min(
                     D[self.trie.get_parent(i), j] + 1,
                     D[i, j - 1] + 1,
-                    D[self.trie.get_parent(i), j - 1] + (self.trie.get_label(i) != x[j-1]) 
+                    D[self.trie.get_parent(i), j - 1] + (self.trie.get_label(i) != x[j-1])
                 )
 
                 if i > 1 and j > 1 and self.trie.get_label(self.trie.get_parent(i)) == x[j - 1] and self.trie.get_label(i) == x[j-2]:
@@ -230,19 +228,19 @@ class TrieSpellSuggester(SpellSuggester):
         if distance == "levenshtein":
             if (threshold != None):
                 distances = self.dp_levenshtein_backwards_trie(term, threshold)
-            else: 
+            else:
                 distances = self.dp_levenshtein_backwards_trie(term)
 
         elif distance == "restricted":
             if (threshold != None):
                 distances = self.dp_restricted_damerau_backwards_trie(term, threshold)
-            else: 
+            else:
                 distances = self.dp_restricted_damerau_backwards_trie(term)
 
         elif distance == "intermediate":
             if (threshold != None):
                 distances = self.dp_intermediate_damerau_backwards_trie(term, threshold)
-            else: 
+            else:
                 distances = self.dp_intermediate_damerau_backwards_trie(term)
 
         results = {} # diccionario termino:distancia
@@ -250,13 +248,13 @@ class TrieSpellSuggester(SpellSuggester):
 
         if type(distances) is np.ndarray:
             for i in range(0, self.trie.get_num_states() + 1):
-            
+
                 if(self.trie.is_final(i) and distances[i] <= threshold ):
                     word = self.trie.get_output(i)
                     results[word] = distances[i]
 
         return results
-    
+
 if __name__ == "__main__":
     spellsuggester = TrieSpellSuggester("./corpora/quijote.txt")
     print(spellsuggester.suggest("alábese"))
