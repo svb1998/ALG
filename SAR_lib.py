@@ -491,8 +491,6 @@ class SAR_Project:
     def search_suggestions(self, term):
         suggested = self.spellsuggester.suggest(term, "restricted", 2)
 
-        print(suggested)
-
         query = ''
 
         words = list(suggested.keys())

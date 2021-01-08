@@ -98,8 +98,8 @@ if __name__ == "__main__":
                     print(query)
     else:
         # modo interactivo
-        query = input("query:")
+        query = input("query: ")
 
         while query != "":
             fnc(query)
-            query = input("query:")
+            query = input("query: ")
